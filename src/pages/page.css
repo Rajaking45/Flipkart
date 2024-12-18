@@ -1,0 +1,28 @@
+.maincontainer{
+    background-image:  linear-gradient(-45deg, #ced3ff, #e4ebf2 51%, #eddef9);    ;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    margin-top: 30%;
+}
+.box1{
+    text-align: start;
+}
+.logintitle{
+    padding-bottom: 20%;
+    font-family: cursive;
+    font-weight: 900;
+    font-size: 25px;
+}
+.lable{
+    font-family: cursive;
+    font-size: 16px;  
+}
+.loginbtn{
+  background-color: rgb(133, 76, 142);   
+  color: white;
+  font-family: cursive;
+}
+.cont_btn{
+padding-top: 10%;
+}
