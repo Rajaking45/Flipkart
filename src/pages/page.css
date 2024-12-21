@@ -1,9 +1,7 @@
 .maincontainer{
-    background-image:  linear-gradient(-45deg, #ced3ff, #e4ebf2 51%, #eddef9);    ;
     display: flex;
     justify-self: center;
     flex-direction: column;
-    margin-top: 30%;
 }
 .box1{
     text-align: start;
@@ -25,4 +23,9 @@
 }
 .cont_btn{
 padding-top: 10%;
+}
+.customBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -5,6 +5,8 @@ import { useState } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import './page.css';
+import { useDispatch } from 'react-redux';
+import {adduser} from '../store/reducer'
 
 const theme = createTheme({
   palette: {
@@ -15,27 +17,23 @@ const theme = createTheme({
   },
 });
 
-export default function Login(props) {
+export default function Singup(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-
+  const [name, setName] = useState("");
+  const [city, setCity] = useState("");
+  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch()
 
   const submitEvent = () => {
-    const userData = { email: email, password: password }; 
-    localStorage.setItem("userData", JSON.stringify(userData));
+    const userData = { email: email, password: password,name:name,city:city }; 
+    dispatch(adduser(userData));
+    setOpen(true);
+    props && props ?.loginstate()
+
   };
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-  };
-  const createAccount =()=>{
-    console.log("props",props);
-    props ?.loginstate()
-    
-  }
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -53,6 +51,14 @@ export default function Login(props) {
         <div className="maincontainer">
           <div className='logintitle'>Login Page</div>
           <div className='box1'>
+          <div>
+              <div className='lable'>Name</div>
+              <input onChange={(event) => setName(event.target.value)} />
+            </div>
+            <div>
+              <div className='lable'>City</div>
+              <input onChange={(event) => setCity(event.target.value)} />
+            </div>
             <div>
               <div className='lable'>Email</div>
               <input onChange={(event) => setEmail(event.target.value)} />
@@ -62,11 +68,9 @@ export default function Login(props) {
               <input onChange={(event) => setPassword(event.target.value)} />
             </div>
           </div>
-          <div className='cont_btn' >
-            <button className='loginbtn' onClick={submitEvent}>Login</button>
-            <button className='loginbtn' onClick={createAccount}>Create account</button>
+          <div className='cont_btn' onClick={submitEvent}>
+            <button className='loginbtn'>Create</button>
           </div>
-
         </div>
       </Box>
     </ThemeProvider>
