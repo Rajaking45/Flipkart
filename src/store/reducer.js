@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     users: [],
     alert:false,
-    alertmessage:'success'
+    alertmessage:'success',
+    Chatcotainner:false
 };
-
 
 const userList = createSlice({
     name: 'user',
@@ -27,8 +27,11 @@ const userList = createSlice({
             state.alert = true;
             state.alertmessage = ''
         },
+        Enablechat: (state, action) => {
+            state.Chatcotainner = true;
+        },
     }
 }) 
 
-export const {adduser,deletUser,EnableAlert,DisableAlert} = userList.actions;
+export const {adduser,deletUser,EnableAlert,DisableAlert,Enablechat} = userList.actions;
 export default userList.reducer;

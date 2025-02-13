@@ -2,8 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useState } from 'react';
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
+import { Enablechat } from '../store/reducer';
+import { useDispatch } from 'react-redux';
 import './page.css';
 
 const theme = createTheme({
@@ -18,11 +18,11 @@ const theme = createTheme({
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-
+  const dispatch = useDispatch()
 
   const submitEvent = () => {
     const userData = { email: email, password: password }; 
+    dispatch(Enablechat(true));
     localStorage.setItem("userData", JSON.stringify(userData));
   };
 
@@ -51,7 +51,7 @@ export default function Login(props) {
         className="customBox"
       >
         <div className="maincontainer">
-          <div className='logintitle'>Login Page</div>
+          <div className='logintitle'>Dhivagar Page</div>
           <div className='box1'>
             <div>
               <div className='lable'>Email</div>
