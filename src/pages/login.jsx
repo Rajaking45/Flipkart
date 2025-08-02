@@ -51,7 +51,7 @@ export default function Login(props) {
         className="customBox"
       >
         <div className="maincontainer">
-          <div className='logintitle'>vivek punda Page</div>
+          <div className='logintitle'>Login Page</div>
           <div className='box1'>
             <div>
               <div className='lable'>Email</div>
